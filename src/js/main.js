@@ -1,5 +1,6 @@
 import getRefs from './get-refs.js';
 import countriesCardTpl from '../templates/countries-card.hbs';
+import listOfCountriesTpl from '../templates/list-countries.hbs';
 import debounce from 'lodash.debounce';
 import API from './fetchCountries.js';
 
@@ -40,7 +41,7 @@ function checkingNumberOfCountries(countries) {
     } 
     else if (countries.length <= 10 && countries.length > 1) {
         clearCountriesCardMarkup();
-        renderCountriesCardMarkup(countriesCardTpl, countries);
+        renderCountriesCardMarkup(listOfCountriesTpl, countries);
     } else if (countries.length === 1) {
         clearCountriesCardMarkup();
         renderCountriesCardMarkup(countriesCardTpl, countries[0]);
@@ -49,7 +50,6 @@ function checkingNumberOfCountries(countries) {
       noMatches();
     }
   }
-  
 
 function renderCountriesCardMarkup (template, countries){
     const markup = template(countries);
